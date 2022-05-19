@@ -4,6 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+In the project we have backend-app folder which is a backend folder for the application. In the backend-app folder you can run npm install. sequelize db:migrate helps to create the database environment we need. sequelize db:seed:all helps to create the departments we need. We can run the backend application using "npm start" after the database environment is set.
 In the project directory, you can run:
 
 ### `npm start`
