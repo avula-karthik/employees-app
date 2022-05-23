@@ -153,3 +153,27 @@ ul {
           height: 500px;
       }
   }
+
+.paginationButtons{
+    width: 80%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+.paginationButtons a{
+    padding: 10px;
+    margin: 8px;
+    border-radius: 5px;
+    border: 1px solid #2b2eff;
+    color: #2b2eff;
+    cursor: pointer;
+}
+.paginationButtons a:hover{
+    color: white;
+    background-color: #2b2eff;
+}
+.paginationActive a{
+    color: white;
+    background-color: #2b2eff;
+}
