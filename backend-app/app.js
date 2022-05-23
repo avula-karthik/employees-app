@@ -1,34 +1,17 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-var cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-var logger = require('morgan');
-var session = require('express-session');
 var cors = require('cors');
 var cron = require('node-cron');
 var employeeModel = require('./models').Employee;
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var departmentRouter = require('./routes/department');
-var employeesRouter = require('./routes/employee');
 
 var app = express();
 app.use(
     cors({
         origin: 'http://localhost:3001',
         methods: ['GET', 'PUT', 'POST', 'DELETE'],
-    })
-);
-app.use(
-    session({
-        secret: 'employee_app_key',
-        resave: true,
-        saveUnitialized: true,
-        cookie: {
-            secure: false,
-        },
     })
 );
 
@@ -42,16 +25,11 @@ app.use((req, res, next) => {
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/departments', departmentRouter);
-app.use('/employees', employeesRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
